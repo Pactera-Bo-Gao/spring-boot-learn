@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+<h2>Login</h2>
+<form action="http://127.0.0.1:8080/login" method="post">
+    <label for="username">username:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <input type="submit" value="Login">
+    <table th:if="${!#strings.isEmpty(username)}">
+        <tr>
+            <th>Username</th>
+        </tr>
+        <tr>
+            <td th:text="${username}">Default Username</td>
+        </tr>
+    </table>
+</form>
+
+</html>
