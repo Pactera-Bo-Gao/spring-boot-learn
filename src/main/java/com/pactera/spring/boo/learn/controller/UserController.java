@@ -23,7 +23,7 @@ public class UserController {
         for (int i = 1; i < 11; i++) {
             UserDataVO user = new UserDataVO();
             user.setId(i);
-            user.setUsername("Xu" + i);
+            user.setUsername("GaoBo" + i);
             userlist.add(user);
         }
 
@@ -36,7 +36,7 @@ public class UserController {
         System.out.println(id);
         UserDataVO user = new UserDataVO();
         user.setId(Integer.parseInt(id));
-        user.setUsername("Xu");
+        user.setUsername("GaoBo");
         return user;
     }
 
