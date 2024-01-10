@@ -1,15 +1,25 @@
-package com.pactera.spring.boo.learn.model.dto;
+package com.pactera.spring.boo.learn.model.entity;
 
-public class UserDataDTO {
-    /** 主键ID */
+public class User {
+    /**
+     * 主键ID
+     */
     private Long id;
-    /** 姓名 */
+    /**
+     * 姓名
+     */
     private String name;
-    /** 年龄 */
+    /**
+     * 年龄
+     */
     private int age;
-    /** 邮箱 */
+    /**
+     * 邮箱
+     */
     private String email;
-    /** 头像 */
+    /**
+     * 头像
+     */
     private String avatar;
 
     public Long getId() {

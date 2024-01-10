@@ -1,1 +1,21 @@
-
+# 数据源配置
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: xxxx
+    username: xxxx
+    password: xxxx
+    hikari:
+      maximum-pool-size: 200
+      minimum-idle: 20
+      max-lifetime: 20000
+      connection-test-query: select 1
+      leak-detection-threshold: 30000
+      allow-pool-suspension: true
+#
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.pactera.spring.boot.learn.mapper

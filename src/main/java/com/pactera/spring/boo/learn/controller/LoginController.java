@@ -26,8 +26,6 @@ public class LoginController {
 
     @PostMapping(value = "login")
     public String toLoginPage(@ModelAttribute UserDataDTO user) {
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
         return "login.html";
     }
 }

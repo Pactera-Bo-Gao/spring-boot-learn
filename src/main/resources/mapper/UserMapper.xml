@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pactera.spring.boo.learn.mapper.UserMapper">
+    <resultMap type="com.pactera.spring.boo.learn.model.vo.UserDataVO" id="UserResult">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="email" column="email"/>
+        <result property="age" column="age"/>
+        <result property="avatar" column="avatar"/>
+    </resultMap>
+    <select id="getUserList" resultMap="UserResult">
+        SELECT * FROM hcm.user
+        where 1=1
+        <if test="req.id != null">
+            AND id = #{req.id}
+        </if>
+    </select>
+
+    <insert id="insertUser" parameterType="com.pactera.spring.boo.learn.model.entity.User" useGeneratedKeys="true"
+            keyProperty="user.id">
+        INSERT INTO hcm.user (id, name, age, email, avatar)
+        VALUES ((select max(id)+1 from hcm.user), #{user.name}, #{user.age}, #{user.email}, #{user.avatar})
+    </insert>
+
+    <insert id="insertUsers" parameterType="com.pactera.spring.boo.learn.model.entity.User">
+        INSERT INTO hcm.user (id, name, age, email, avatar) VALUES
+        <foreach item="item" collection="users" separator=",">
+            (#{item.id},#{item.name}, #{item.age}, #{item.email}, #{item.avatar})
+        </foreach>
+    </insert>
+    <update id="updateUser" parameterType="com.pactera.spring.boo.learn.model.entity.User">
+        update hcm.user set
+                          name = #{user.name},
+                          age = #{user.age},
+                          email = #{user.email},
+                          avatar = #{user.avatar}
+        where id = #{user.id}
+    </update>
+    <delete id="deleteUser">
+     delete from hcm.user where id = #{id}
+    </delete>
+</mapper>

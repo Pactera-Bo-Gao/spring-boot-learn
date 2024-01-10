@@ -1,24 +1,54 @@
 package com.pactera.spring.boo.learn.model.vo;
 
 public class UserDataVO {
-    private int id;
+    /** 主键ID */
+    private Long id;
+    /** 姓名 */
+    private String name;
+    /** 年龄 */
+    private int age;
+    /** 邮箱 */
+    private String email;
+    /** 头像 */
+    private String avatar;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    private String username;
-
-
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }
